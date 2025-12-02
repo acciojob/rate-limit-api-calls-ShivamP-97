@@ -42,11 +42,11 @@ function makeApiCall(resolve) {
     fetch("https://jsonplaceholder.typicode.com/todos/1")
         .then(response => response.json())
         .then(data => {
-            const el = document.createElement("pre");
-            el.textContent = JSON.stringify(data, null, 2);
-            resultsDiv.appendChild(el);
-
-            resolve();
+			const el = document.createElement("div");
+			el.textContent = `ID: ${data.id}, Title: ${data.title}, Completed: ${data.completed}`;
+			resultsDiv.appendChild(el);
+			
+			resolve();
         })
         .catch(err => {
             console.error(err);
